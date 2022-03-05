@@ -19,12 +19,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'org.postgresql:postgresql'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-batch:${springBootVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 }
 
 tasks.named('test') {
