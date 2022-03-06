@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  batch-quartz-db:
+    image: "postgres:13.4"
+    container_name: batch-quartz-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: product_db
+    ports:
+      - 5432:5432

@@ -1,4 +1,22 @@
 server:
   port: 8085
 
+spring:
+  application:
+    name: spring-batch-quartz
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product_db
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
 
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false

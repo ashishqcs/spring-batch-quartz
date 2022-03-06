@@ -8,6 +8,7 @@ import org.springframework.batch.item.database.JpaItemWriter;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -19,7 +20,7 @@ public class ProductWriter extends JpaItemWriter<TargetProduct> {
     }
 
     @OnWriteError
-    public void onWriteError(TargetProduct product, Exception exception) {
-        log.error("Error while writing product : [{}], exception - {}", product.getName(), exception.getMessage());
+    public void onWriteError(Exception exception, List<? extends ProductWriter> items) {
+        log.error("Error while writing products : [{}], exception - {}", items.toString(), exception.getMessage());
     }
 }
