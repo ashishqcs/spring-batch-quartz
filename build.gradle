@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'checkstyle'
 }
 
 group = 'com.midnight'
@@ -12,6 +13,18 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+checkstyle {
+    toolVersion checkstyleVersion
+}
+
+checkstyleMain {
+    source ='src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/test/java'
 }
 
 repositories {

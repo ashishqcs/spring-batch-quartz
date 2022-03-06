@@ -1,13 +1,13 @@
-package com.midnight.springbootstarter;
+package com.midnight.springbatchquartz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootStarterApplication {
+public class SpringBatchQuartzApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootStarterApplication.class, args);
+        SpringApplication.run(SpringBatchQuartzApplication.class, args);
     }
 
 }
