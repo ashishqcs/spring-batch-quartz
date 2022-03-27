@@ -1,6 +1,7 @@
 package com.midnight.springbatchquartz.controller;
 
 import com.midnight.springbatchquartz.service.BatchJobService;
+import org.springframework.batch.core.Job;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,13 +13,16 @@ public class BatchJobController {
 
     private final BatchJobService jobService;
 
-    public BatchJobController(BatchJobService jobService) {
+    private final Job manualJob;
+
+    public BatchJobController(BatchJobService jobService, Job manualJob) {
         this.jobService = jobService;
+        this.manualJob = manualJob;
     }
 
     @GetMapping(path = "/manual")
     public String startManualBatchJob(){
 
-        return jobService.triggerManualJob();
+        return jobService.triggerBatchJob(manualJob);
     }
 }

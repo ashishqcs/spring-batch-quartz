@@ -1,5 +1,6 @@
 package com.midnight.springbatchquartz.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.stereotype.Service;
@@ -7,25 +8,19 @@ import org.springframework.stereotype.Service;
 import static java.lang.System.currentTimeMillis;
 
 @Service
+@AllArgsConstructor
 public class BatchJobService {
 
     private final JobLauncher jobLauncher;
 
-    private final Job manualJob;
-
-    public BatchJobService(JobLauncher jobLauncher, Job manualJob) {
-        this.jobLauncher = jobLauncher;
-        this.manualJob = manualJob;
-    }
-
-    public String triggerManualJob() {
+    public String triggerBatchJob(Job job) {
 
         JobParameters jobParameters = new JobParametersBuilder()
-                .addLong("time", currentTimeMillis())
+                .addLong("startTime", currentTimeMillis())
                 .toJobParameters();
 
         try {
-            return jobLauncher.run(manualJob, jobParameters).getStatus().name();
+            return jobLauncher.run(job, jobParameters).getStatus().name();
         } catch (JobExecutionException e) {
             e.printStackTrace();
         }

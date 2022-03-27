@@ -24,3 +24,7 @@ spring:
       initialize-schema: always
     job:
       enabled: false
+
+application:
+  scheduler:
+    cron: "0 */2 * ? * *"
