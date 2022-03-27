@@ -19,6 +19,7 @@ spring:
     jdbc:
       initialize-schema: always
 
+
   batch:
     jdbc:
       initialize-schema: always

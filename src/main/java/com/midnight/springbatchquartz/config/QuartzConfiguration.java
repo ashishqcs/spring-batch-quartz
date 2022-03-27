@@ -2,7 +2,6 @@ package com.midnight.springbatchquartz.config;
 
 import com.midnight.springbatchquartz.scheduler.ScheduledJob;
 import com.midnight.springbatchquartz.scheduler.SchedulerJobFactory;
-import lombok.AllArgsConstructor;
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,15 +17,19 @@ import javax.sql.DataSource;
 import java.text.ParseException;
 
 @Configuration
-@AllArgsConstructor
 public class QuartzConfiguration {
 
     private final ApplicationContext applicationContext;
 
     private final DataSource dataSource;
 
-    @Value("${application.scheduler.cron: */50 * * * * ? *}")
+    @Value("${application.scheduler.cron:0 */1 * ? * *}")
     private String cronTrigger;
+
+    public QuartzConfiguration(ApplicationContext applicationContext, DataSource dataSource) {
+        this.applicationContext = applicationContext;
+        this.dataSource = dataSource;
+    }
 
     @Bean
     public SchedulerFactoryBean schedulerFactoryBean() throws ParseException {
@@ -45,9 +48,9 @@ public class QuartzConfiguration {
     private CronTrigger cronTriggerBean() throws ParseException {
         CronTriggerFactoryBean triggerFactory = new CronTriggerFactoryBean();
         triggerFactory.setName("cronTrigger");
-        triggerFactory.setMisfireInstruction(CronTrigger.MISFIRE_INSTRUCTION_DO_NOTHING);
         triggerFactory.setCronExpression(cronTrigger);
         triggerFactory.setJobDetail(jobDetailBean());
+        triggerFactory.setMisfireInstruction(CronTrigger.MISFIRE_INSTRUCTION_DO_NOTHING);
         triggerFactory.afterPropertiesSet();
         return triggerFactory.getObject();
     }
