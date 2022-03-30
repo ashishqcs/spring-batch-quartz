@@ -1,5 +1,3 @@
-# Getting Started
+# Spring Batch Quartz
 
-### Springboot Starter
-
-* Basic springboot project acting as starter kit.
+> This Application demonstrates functioning of spring batch with manual trigger as well as quartz scheduler triggered batch job.
