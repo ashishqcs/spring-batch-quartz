@@ -10,6 +10,14 @@ This repo has 2 spring batch jobs.
 See Configurations: [BatchConfiguration](src/main/java/com/midnight/springbatchquartz/config/BatchConfiguration.java),
 [QuartzConfiguration](src/main/java/com/midnight/springbatchquartz/config/QuartzConfiguration.java)
 
+## Contents
+* [Run Application](#Run-this-application)
+* [Spring Batch](#Spring-Batch)
+  * [Step](#Spring-batch-Step)
+  * [Listeners](#Job-Listeners)
+  * [Job](#Batch-Job)
+* [Spring Quartz](#Spring-Quartz)
+
 
 ## Run this application
 
@@ -25,7 +33,7 @@ Below is a reference to Spring Batch model.
  
 A Job is core of spring batch. A batch job can have one or more steps.
 
-### Step
+### Spring batch Step
 
 Spring batch supports 2 types of processing, one is `chunk` based processing and another
 is `tasklet` based processing.
@@ -66,13 +74,13 @@ dealing with large amount of data. It requires `reader` (reads from source), `pr
         }
     ```
 
-### Listeners
+### Job Listeners
 
 `Listeners provide ability to execute code before and after a job is executed.`
 
 See implementations: [Listener](src/main/java/com/midnight/springbatchquartz/listener/ManualJobListener.java)
 
-### Job
+### Batch Job
 
 A batch job can contain one or more steps. Below is how you can configure a job.
 
