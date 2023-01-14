@@ -38,7 +38,6 @@ public class BatchConfiguration {
                 .flow(manualStep)
                 .end()
                 .build();
-
     }
 
     @Bean(name = "manualBatchJobStep")
@@ -52,7 +51,6 @@ public class BatchConfiguration {
                 .skipLimit(2)
                 .skip(Exception.class)
                 .build();
-
     }
 
     @Bean(name = "scheduledBatchJob")
