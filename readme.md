@@ -1,6 +1,6 @@
 # Spring Batch Quartz
 
-This Application demonstrates functioning of spring batch with manual trigger as well as quartz scheduler triggered batch job.
+> This Application demonstrates functioning of spring batch with manual trigger as well as quartz scheduler triggered batch job.
 
 This repo has 2 spring batch jobs.
 * `Manual Batch Job` - This batch job is triggered by [BatchJobController](src/main/java/com/midnight/springbatchquartz/controller/BatchJobController.java). 
