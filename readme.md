@@ -33,7 +33,7 @@ Below is a reference to Spring Batch model.
  
 A Job is core of spring batch. A batch job can have one or more steps.
 
-### Spring batch Step
+### Spring Batch Step
 
 Spring batch supports 2 types of processing, one is `chunk` based processing and another
 is `tasklet` based processing.
